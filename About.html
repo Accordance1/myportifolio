@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
+  <title>About Me</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f8f9fa; /* Light background for the body */
+      color: #343a40; /* Dark text color for contrast */
+    }
+
+    h2, h3 {
+      color: #343a40; /* Dark color for headings */
+      text-align: left; /* Align h2 and h3 to the left */
+    }
+
+    .skills-list {
+      list-style-type: none;
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap; /* Allows items to wrap to the next line */
+      justify-content: center; /* Center items */
+    }
+
+    .skills-list li {
+      background: #ffffff; /* White background */
+      color: #343a40; /* Dark text */
+      padding: 20px; /* Increased padding */
+      margin: 10px; /* Space between rectangles */
+      border: 2px solid #007bff; /* Bright border */
+      border-radius: 5px; /* Slight rounding for aesthetics */
+      width: 150px; /* Width for the rectangle */
+      text-align: center; /* Center the text */
+      position: relative; /* For pseudo-element positioning */
+      transition: transform 0.3s, box-shadow 0.3s; /* Transition for hover effects */
+    }
+
+    .skills-list li:hover {
+      transform: translateY(-5px); /* Lift effect on hover */
+      box-shadow: 0 4px 20px rgba(0, 123, 255, 0.5); /* Shadow effect on hover */
+    }
+
+    .skills-list li::after {
+      content: '';
+      position: absolute;
+      bottom: -5px; /* Adjusted to sit right below the box */
+      left: 0;
+      right: 0;
+      height: 5px; /* Height of the slice effect */
+      background: #007bff; /* Color for the slice */
+      border-radius: 3px; /* Match border radius */
+      transform: scaleX(0); /* Initially hidden */
+      transition: transform 0.3s; /* Transition for the slice */
+    }
+
+    .skills-list li:hover::after {
+      transform: scaleX(1); /* Show slice on hover */
+    }
+
+    footer {
+      margin-top: 150px; /* Move footer down */
+      text-align: center;
+      padding: 20px;
+      background-color: #343a40; /* Dark footer */
+      color: white;
+    }
+
+    /* Hamburger Menu */
+    label {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      background-color: rgb(250, 250, 250);
+    }
+
+    .slide {
+      height: 100vh;
+      width: 250px;
+      right: 0;
+      position: fixed;
+      transition: 0.5s ease;
+      transform: translateX(100%);
+      background-color: rgba(51, 52, 53, 0.671);
+      z-index: 2;
+    }
+
+    #nav-ul {
+      list-style: none;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      position: absolute;
+      opacity: 1;
+      text-decoration: none;
+    }
+
+    #nav-ul li a {
+      color: rgb(255, 255, 255);
+      text-decoration: none;
+      padding: 5px 20px;
+      display: block;
+    }
+
+    input {
+      display: none;
+    }
+
+    .toggle {
+      position: fixed;
+      height: 40px;
+      width: 40px;
+      top: 18px;
+      right: 15px;
+      z-index: 3;
+      cursor: pointer;
+      border-radius: 2px;
+      background-color: rgba(0, 0, 0, 0.2);
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .toggle .common {
+      position: absolute;
+      height: 2px;
+      width: 20px;
+      background-color: white;
+      border-radius: 50px;
+      transition: 0.3s ease;
+    }
+
+    .toggle .top_line {
+      top: 30%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .toggle .middle_line {
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .toggle .bottom_line {
+      top: 70%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    input:checked ~ .toggle .top_line {
+      left: 2px;
+      top: 14px;
+      width: 25px;
+      transform: rotate(45deg);
+    }
+
+    input:checked ~ .toggle .bottom_line {
+      left: 2px;
+      top: 14px;
+      width: 25px;
+      transform: rotate(-45deg);
+    }
+
+    input:checked ~ .toggle .middle_line {
+      opacity: 0;
+      transform: translateX(20px);
+    }
+
+    input:checked ~ .slide {
+      transform: translateX(0);
+      box-shadow: 0 0 15px rgba(166, 167, 164, 0.5);
+    }
+  </style>
+</head>
+<body>
+  <!-- Hamburger Menu -->
+  <label>
+    <input type="checkbox" id="menuToggle">
+    <div class="toggle">
+      <span class="top_line common"></span>
+      <span class="middle_line common"></span>
+      <span class="bottom_line common"></span>
+    </div>
+    <div class="slide">
+      <ul id="nav-ul" class="list-unstyled">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="Projects.html">Projects</a></li>
+        <li><a href="Contact.html">Contact me</a></li>
+      </ul>
+    </div>
+  </label>
+  <!-- End Hamburger Menu -->
+
+  <!-- About Section -->
+  <div class="container">
+    <h2><br>About Me</h2>
+    <p><br>
+      My name is Accordance, and I am a passionate web developer with a diverse skill set in both front-end and back-end technologies. At Uncommon.org, I have honed my expertise in Node.js, HTML, React, CSS, and SCSS, alongside programming languages like Python and C#. Additionally, I am proficient in PHP and MongoDB for back-end development. My hands-on experience includes developing several projects at Uncommon.org and completing an internship as a web developer with the City of Harare, where I applied my skills to real-world challenges. Beyond coding, I have a strong passion for graphic design, which enhances my ability to create visually appealing and user-friendly web applications. I am eager to continue learning and contributing to innovative projects in the tech industry.
+    </p>
+
+    <h3>My Skills</h3><br>
+    <ul class="skills-list">
+      <li>HTML</li>
+      <li>CSS</li>
+      <li>JavaScript</li>
+      <li>React</li>
+      <li>Angular</li>
+      <li>Node.js</li>
+      <li>Express</li>
+      <li>Python</li>
+      <li>Django</li>
+      <li>Responsive Web Design</li>
+    </ul>
+  </div>
+
+  <footer>
+    <p>&copy; 2024 Accordance Mabvuu. All rights reserved.</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // JavaScript to hide menu when clicking outside of it
+    const menuToggle = document.getElementById('menuToggle');
+    const menuContainer = document.querySelector('.slide');
+
+    document.addEventListener('click', function(event) {
+      if (!menuToggle.checked) return; // If menu is not open, do nothing
+      if (!menuContainer.contains(event.target) && !menuToggle.contains(event.target)) {
+        menuToggle.checked = false; // Close the menu
+      }
+    });
+  </script>
+</body>
+</html>

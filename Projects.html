@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/bootstrap-5.0.2-dist/css/bootstrap.min.css">
+    <title>Portfolio</title>
+    <style>
+        /* General Styles */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+        }
+
+        /* Hamburger Menu Styles */
+        label {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        input {
+            display: none;
+        }
+
+        .toggle {
+            position: fixed;
+            height: 40px;
+            width: 40px;
+            top: 18px;
+            right: 15px;
+            z-index: 1000;
+            cursor: pointer;
+            background-color: rgba(0, 0, 0, 0.2);
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .toggle .common {
+            position: absolute;
+            height: 2px;
+            width: 20px;
+            background-color: white;
+            border-radius: 50px;
+            transition: 0.3s;
+        }
+
+        .toggle .top_line {
+            top: 30%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .toggle .middle_line {
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .toggle .bottom_line {
+            top: 70%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        input:checked ~ .toggle .top_line {
+            transform: rotate(45deg);
+            top: 50%;
+        }
+
+        input:checked ~ .toggle .middle_line {
+            opacity: 0;
+        }
+
+        input:checked ~ .toggle .bottom_line {
+            transform: rotate(-45deg);
+            top: 50%;
+        }
+
+        .slide {
+            height: 100vh;
+            width: 250px; /* Adjust width as needed */
+            position: fixed;
+            top: 0;
+            right: -250px; /* Start off-screen */
+            background-color: rgba(51, 52, 53, 0.9);
+            transition: transform 0.5s;
+            z-index: 999;
+        }
+
+        input:checked ~ .slide {
+            transform: translateX(-250px); /* Slide in */
+        }
+
+        #nav-ul {
+            list-style: none;
+            padding: 0;
+            margin: 50px 0 0;
+            text-align: center;
+        }
+
+        #nav-ul li a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            padding: 15px;
+            transition: color 0.3s;
+        }
+
+        #nav-ul li a:hover {
+            color: #ddd;
+        }
+
+        /* Portfolio Styles */
+        .portfolio {
+            padding: 5rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .portfolio h2 {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .carousel-container {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .carousel-wrapper {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .project-card {
+            min-width: 300px;
+            height: 300px;
+            background-size: cover;
+            background-position: center;
+            border-radius: 10px;
+            margin: 10px;
+            color: white;
+            display: flex;
+            align-items: flex-end;
+            padding: 20px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+            opacity: 0; /* Start invisible for fade-in effect */
+            transform: translateY(20px); /* Start slightly below */
+            animation: fadeIn 1s ease-in-out forwards, slideIn 0.5s ease forwards; /* Apply both animations */
+        }
+
+        /* Fade Animation */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Slide Animation */
+        @keyframes slideIn {
+            from {
+                transform: translateY(20px); /* Start below */
+            }
+            to {
+                transform: translateY(0); /* End at original position */
+            }
+        }
+
+        /* Carousel Buttons */
+        .carousel-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            z-index: 1000;
+        }
+
+        .prev {
+            left: 10px;
+        }
+
+        .next {
+            right: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Hamburger Menu -->
+    <label>
+        <input type="checkbox">
+        <div class="toggle">
+            <span class="top_line common"></span>
+            <span class="middle_line common"></span>
+            <span class="bottom_line common"></span>
+        </div>
+        <div class="slide">
+            <ul id="nav-ul" class="list-unstyled">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="About.html">About</a></li>
+                <li><a href="Contact.html">Contact me</a></li>
+            </ul>
+        </div>
+    </label>
+    <!-- End Hamburger Menu -->
+
+    <!-- Portfolio Section -->
+    <section class="portfolio">
+        <div class="container text-center">
+            <h2>Recent Projects</h2>
+            <div class="carousel-container">
+                <button class="carousel-button prev" onmousedown="startSlide(-1)" onmouseup="stopSlide()" onmouseleave="stopSlide()">&#10094;</button>
+                <div class="carousel-wrapper" id="carouselWrapper">
+                    <!-- Project Cards -->
+                    <div class="project-card" style="background-image: url('/images/Screenshot\ 2024-11-15\ 140623.png');">
+                        
+                    </div>
+                    <div class="project-card" style="background-image: url('/images/Screenshot\ 2024-10-19\ 152507.png');">
+                        
+                    </div>
+                    <div class="project-card" style="background-image: url('/images/Screenshot\ 2024-11-15\ 101412.png');">
+                        
+                    </div>
+                    <!-- Repeat Cards for Continuous Effect -->
+                    <div class="project-card" style="background-image: url('/images/Screenshot\ 2024-11-15\ 140715.png');">
+                        
+                    </div>
+                    <div class="project-card" style="background-image: url('/images/Screenshot\ 2024-11-20\ 120229.png');">
+                        
+                    </div>
+                    <div class="project-card" style="background-image: url('/images/Screenshot\ 2024-11-20\ 122923.png');">
+                      
+                    </div>
+                </div>
+                <button class="carousel-button next" onmousedown="startSlide(1)" onmouseup="stopSlide()" onmouseleave="stopSlide()">&#10095;</button>
+            </div>
+        </div>
+    </section>
+    <!-- End Portfolio Section -->
+
+    <footer class="text-center py-3 bg-light">
+        <p>&copy; 2024 Accordance Mabvuu. All rights reserved.</p>
+    </footer>
+
+    <script src="/bootstrap-5.0.2-dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        let currentIndex = 0;
+        const totalCards = 6; // Adjusted for repeated cards
+        let slideInterval;
+
+        function moveSlide(direction) {
+            currentIndex += direction;
+
+            // Wrap around if out of bounds
+            if (currentIndex < 0) {
+                currentIndex = totalCards - 1;
+            } else if (currentIndex >= totalCards) {
+                currentIndex = 0;
+            }
+
+            // Calculate the new position
+            const offset = -currentIndex * (300 + 20); // Width of card + margin
+            document.getElementById('carouselWrapper').style.transform = `translateX(${offset}px)`;
+        }
+
+        function startSlide(direction) {
+            slideInterval = setInterval(() => moveSlide(direction), 100); // Adjust speed as necessary
+        }
+
+        function stopSlide() {
+            clearInterval(slideInterval);
+        }
+    </script>
+</body>
+</html>

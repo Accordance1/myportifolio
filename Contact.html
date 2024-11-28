@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.CSS">
+    <link rel="stylesheet" href="MyJava.js">
+    <title>Document</title>
+</head>
+
+<style>
+  
+#Mybody{
+   height: 80vh;
+}
+
+.contact-section {
+   background-color: #f7f7f7;
+   padding: 50px 0;
+   text-align: center;
+}
+
+.contact-section h1 {
+   font-size: 36px;
+   margin-bottom: 10px;
+}
+
+.contact-section p {
+   font-size: 18px;
+   margin-bottom: 30px;
+}
+
+.contact-form {
+   max-width: 600px;
+   margin: 0 auto;
+   padding: 20px;
+   background-color: #fff;
+   border: 1px solid #ddd;
+   border-radius: 10px;
+   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.contact-form input,
+.contact-form textarea {
+   width: 100%;
+   padding: 10px;
+   margin-bottom: 20px;
+   border: 1px solid #ccc;
+   border-radius: 5px;
+}
+
+.contact-form input[type="submit"] {
+   background-color: #4CAF50;
+   color: #fff;
+   padding: 10px 20px;
+   border: none;
+   border-radius: 5px;
+   cursor: pointer;
+}
+
+.contact-form input[type="submit"]:hover {
+   background-color: #3e8e41;
+}
+
+.contact-info {
+   margin-top: 30px;
+}
+
+.contact-info p {
+   font-size: 18px;
+   margin-bottom: 10px;
+}
+
+.social-media {
+   list-style: none;
+   margin: 0;
+   padding: 0;
+   display: flex;
+   justify-content: center;
+}
+
+.social-media li {
+   margin-right: 20px;
+}
+
+.social-media a {
+   font-size: 24px;
+   color: #333;
+   transition: color 0.2s ease;
+}
+
+.social-media a:hover {
+   color: #4CAF50;
+}
+#mybtn{
+   background-color:black;
+   border: none;
+   color: #ccc;
+   padding: 20px;
+   border-radius: 5px;
+   cursor: pointer;
+}
+
+#mybtn:hover{
+   background-color:#333;
+}
+
+
+#textArea {
+   height: 19px;
+   width: 540px;
+}
+
+
+
+</style>
+<body id="Mybody">
+    
+  <!-- hamburger-menu -->
+  <label>
+    <input type="checkbox">
+    <div class="toggle">
+      <span class="top_line common"></span>
+      <span class="middle_line common"></span>
+      <span class="bottom_line common"></span>
+    </div>
+
+    <div class="slide">
+      <ul id="nav-ul">
+        <li><a href="About.html">About</a></li>
+        <li><a href="Projects.html">Projects</a></li>
+        <li><a href="index.html">Home</a></li>
+      </ul>
+    </div>
+  </label>
+  <!--end-hamburger-menu -->
+
+  <!--contact-me-->
+  <section id="contact" class="contact-section">
+    <h1>Get in Touch</h1>
+    <p>Let's discuss your project or idea.</p>
+  
+    <div class="contact-form">
+      <!-- <form id="contact-form" method="POST"> -->
+        <form action="https://formsubmit.co/mabvuuaccordance@gmail.com" method="POST" id="contact-form">
+        <textarea id="textArea" name="message" placeholder="Message" required></textarea>
+        <button id="mybtn" type="submit">Send Message</button>
+      </form>
+    </div>
+  
+    <div class="contact-info">
+      <p>
+        Email: <a href="mabvuuaccordance@gmail.com">mabvuuaccordance@gmail.com</a>
+      </p>
+      <p>
+        Phone: +2637867567466
+      </p>
+      <p>
+        Address: 42 2nd cresent warrenpark 1
+      </p>
+    </div>
+  
+    <ul class="social-media">
+      <li>
+        <a href="#" target="_blank">
+          <i class="fa-brands fa-linkedin"></i>
+        </a>
+      </li>
+      <li>
+        <a href="#" target="_blank">
+          <i class="fa-brands fa-github"></i>
+        </a>
+      </li>
+      <li>
+        <a href="#" target="_blank">
+          <i class="fa-brands fa-twitter"></i>
+        </a>
+      </li>
+    </ul>
+  </section>
+  
+  <!--end-contact-me-->
+
+  
+  <footer>
+    <p>&copy; 2024 Accordance mabvuu. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
